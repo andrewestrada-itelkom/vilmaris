@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Modelos Educativos Flexibles en Colombia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            width: 100%;
+            max-width: 500px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flowchart-step {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .flowchart-arrow {
+            position: relative;
+            flex-grow: 1;
+            height: 2px;
+        }
+        .flowchart-arrow::after {
+            content: '►';
+            position: absolute;
+            top: 50%;
+            right: -8px;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-[#CAF0F8] text-[#00446A]">
+    
+    <header class="bg-[#0077B6] text-white p-6 text-center shadow-lg">
+        <h1 class="text-3xl md:text-5xl font-black tracking-tight">Modelos Educativos Flexibles en Colombia</h1>
+        <p class="text-lg md:text-xl mt-2 font-light max-w-3xl mx-auto">Tejiendo Saberes para Horizontes Abiertos: Una respuesta a las inequidades en cobertura, calidad y eficiencia.</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section id="introduccion" class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-[#00446A] mb-4">¿Por qué Modelos Flexibles?</h2>
+            <p class="text-lg text-[#073B4C] max-w-4xl mx-auto">Para ampliar la cobertura educativa, mejorar la calidad y la eficiencia, superando las brechas entre zonas urbanas y rurales y atendiendo a las poblaciones más vulnerables del país. Estos 7 modelos son la estrategia clave.</p>
+        </section>
+
+        <section id="comparativa-general" class="mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-center mb-4 text-[#00446A]">Población Objetivo por Modelo</h3>
+                    <p class="text-sm text-center text-[#073B4C] mb-4">Cada modelo se especializa en un grupo demográfico, desde niños en extraedad hasta adultos que buscan completar su educación.</p>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="poblacionChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-center mb-4 text-[#00446A]">Enfoques Pedagógicos Clave</h3>
+                     <p class="text-sm text-center text-[#073B4C] mb-4">Un vistazo comparativo a las dimensiones pedagógicas que caracterizan cada modelo educativo.</p>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="modelos">
+            <h2 class="text-3xl font-bold text-center text-[#00446A] mb-8">Análisis Detallado de los 7 Modelos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
+                    <h3 class="text-2xl font-bold text-[#00446A]">1. Aceleración del Aprendizaje</h3>
+                    <p class="text-sm text-[#073B4C] mb-4">Nivela la primaria para niños en extraedad.</p>
+                    <ul class="text-[#073B4C] space-y-2 mb-4 list-disc list-inside">
+                        <li><span class="font-bold">Paradigma:</span> Centrado en el alumno, constructivista.</li>
+                        <li><span class="font-bold">Rol Docente:</span> Fortalece la autoestima.</li>
+                        <li><span class="font-bold">Ventaja:</span> Avance de hasta 2 grados en un año.</li>
+                    </ul>
+                    <div class="mt-auto">
+                        <h4 class="font-bold text-center mb-2">Recursos Principales</h4>
+                        <div class="chart-container !h-56">
+                            <canvas id="recursosAA"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
+                    <h3 class="text-2xl font-bold text-[#00446A]">2. Postprimaria</h3>
+                    <p class="text-sm text-[#073B4C] mb-4">Secundaria rural para frenar la migración.</p>
+                    <ul class="text-[#073B4C] space-y-2 mb-4 list-disc list-inside">
+                        <li><span class="font-bold">Paradigma:</span> Contextualizado, basado en proyectos.</li>
+                        <li><span class="font-bold">Rol Alumno:</span> Protagonista del autoaprendizaje.</li>
+                        <li><span class="font-bold">Ventaja:</span> Articula educación formal y no formal.</li>
+                    </ul>
+                    <div class="mt-auto">
+                        <h4 class="font-bold text-center mb-2">Recursos Principales</h4>
+                        <div class="chart-container !h-56">
+                            <canvas id="recursosPP"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
+                    <h3 class="text-2xl font-bold text-[#00446A]">3. Telesecundaria</h3>
+                    <p class="text-sm text-[#073B4C] mb-4">Secundaria con apoyo de TV educativa.</p>
+                    <ul class="text-[#073B4C] space-y-2 mb-4 list-disc list-inside">
+                        <li><span class="font-bold">Paradigma:</span> Activo, con medios de comunicación.</li>
+                        <li><span class="font-bold">Rol Docente:</span> Facilitador que verifica logros.</li>
+                        <li><span class="font-bold">Ventaja:</span> Proporciona herramientas competitivas.</li>
+                    </ul>
+                    <div class="mt-auto">
+                        <h4 class="font-bold text-center mb-2">Recursos Principales</h4>
+                        <div class="chart-container !h-56">
+                            <canvas id="recursosTS"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
+                    <h3 class="text-2xl font-bold text-[#00446A]">4. Servicio de Educación Rural (SER)</h3>
+                    <p class="text-sm text-[#073B4C] mb-4">Educación básica y media para jóvenes y adultos.</p>
+                    <ul class="text-[#073B4C] space-y-2 mb-4 list-disc list-inside">
+                        <li><span class="font-bold">Paradigma:</span> Humanista, comunitario, investigación-acción.</li>
+                         <li><span class="font-bold">Rol Tutor:</span> Líder comunitario y gestor de conocimiento.</li>
+                        <li><span class="font-bold">Ventaja:</span> Reconceptualiza la educación con pertenencia.</li>
+                    </ul>
+                     <div class="mt-auto">
+                        <h4 class="font-bold text-center mb-2">Recursos Principales</h4>
+                        <div class="chart-container !h-56">
+                            <canvas id="recursosSER"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
+                    <h3 class="text-2xl font-bold text-[#00446A]">5. Programa de Educación Continuada CAFAM</h3>
+                    <p class="text-sm text-[#073B4C] mb-4">Alfabetización y educación básica para adultos.</p>
+                    <ul class="text-[#073B4C] space-y-2 mb-4 list-disc list-inside">
+                        <li><span class="font-bold">Paradigma:</span> Autoaprendizaje, desarrollo humano.</li>
+                        <li><span class="font-bold">Rol Alumno:</span> Responsable de su proceso, modifica autoimagen.</li>
+                        <li><span class="font-bold">Ventaja:</span> Flexibilidad de ritmos y contenidos laborales.</li>
+                    </ul>
+                     <div class="mt-auto">
+                        <h4 class="font-bold text-center mb-2">Recursos Principales</h4>
+                        <div class="chart-container !h-56">
+                            <canvas id="recursosCAFAM"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
+                    <h3 class="text-2xl font-bold text-[#00446A]">6. Sistema de Aprendizaje Tutorial (SAT)</h3>
+                    <p class="text-sm text-[#073B4C] mb-4">Secundaria y media rural sin abandonar la comunidad.</p>
+                    <ul class="text-[#073B4C] space-y-2 mb-4 list-disc list-inside">
+                        <li><span class="font-bold">Paradigma:</span> Desarrollo integral, servicio a la comunidad.</li>
+                        <li><span class="font-bold">Rol Alumno:</span> Eje del currículo, transforma su realidad.</li>
+                        <li><span class="font-bold">Ventaja:</span> Conocimiento pertinente y se ha internacionalizado.</li>
+                    </ul>
+                    <div class="mt-auto">
+                        <h4 class="font-bold text-center mb-2">Recursos Principales</h4>
+                        <div class="chart-container !h-56">
+                            <canvas id="recursosSAT"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col md:col-span-2 lg:col-span-1">
+                    <h3 class="text-2xl font-bold text-[#00446A]">7. Escuela Nueva (EN)</h3>
+                    <p class="text-sm text-[#073B4C] mb-4">Primaria de calidad para multigrado rural y urbano.</p>
+                    <ul class="text-[#073B4C] space-y-2 mb-4 list-disc list-inside">
+                        <li><span class="font-bold">Paradigma:</span> Constructivista, participativo, comunitario.</li>
+                        <li><span class="font-bold">Rol Maestro:</span> Facilitador en grupos heterogéneos.</li>
+                        <li><span class="font-bold">Ventaja:</span> Adaptable a poblaciones vulnerables.</li>
+                    </ul>
+                    <div class="mt-auto">
+                        <h4 class="font-bold text-center mb-2">Recursos Principales</h4>
+                        <div class="chart-container !h-56">
+                            <canvas id="recursosEN"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proceso" class="mt-16 bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-3xl font-bold text-center text-[#00446A] mb-2">Proceso de Implementación</h2>
+            <p class="text-lg text-center text-[#073B4C] max-w-2xl mx-auto mb-8">La puesta en marcha de un modelo educativo flexible sigue un proceso estructurado para asegurar su pertinencia y éxito en el contexto local.</p>
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4 text-white">
+                <div class="flowchart-step bg-[#0077B6] rounded-full w-32 h-32 p-2 shadow-md"><span><strong>1.</strong><br>Diagnóstico Contextual</span></div>
+                <div class="flowchart-arrow bg-[#90E0EF] w-full md:w-auto h-1 md:h-auto transform md:-rotate-0 rotate-90"></div>
+                <div class="flowchart-step bg-[#00B4D8] rounded-full w-32 h-32 p-2 shadow-md"><span><strong>2.</strong><br>Selección del Modelo</span></div>
+                <div class="flowchart-arrow bg-[#90E0EF] w-full md:w-auto h-1 md:h-auto transform md:-rotate-0 rotate-90"></div>
+                <div class="flowchart-step bg-[#0077B6] rounded-full w-32 h-32 p-2 shadow-md"><span><strong>3.</strong><br>Gestión y Adquisición</span></div>
+                <div class="flowchart-arrow bg-[#90E0EF] w-full md:w-auto h-1 md:h-auto transform md:-rotate-0 rotate-90"></div>
+                <div class="flowchart-step bg-[#00B4D8] rounded-full w-32 h-32 p-2 shadow-md"><span><strong>4.</strong><br>Capacitación Docente</span></div>
+                <div class="flowchart-arrow bg-[#90E0EF] w-full md:w-auto h-1 md:h-auto transform md:-rotate-0 rotate-90"></div>
+                <div class="flowchart-step bg-[#0077B6] rounded-full w-32 h-32 p-2 shadow-md"><span><strong>5.</strong><br>Implementación y Seguimiento</span></div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="bg-[#00446A] text-white text-center p-4 mt-12">
+        <p>Infografía generada a partir del Portafolio de Modelos Educativos Flexibles del Ministerio de Educación Nacional de Colombia.</p>
+    </footer>
+
+    <script>
+        const brilliantBlues = {
+            dark: '#00446A',
+            main: '#0077B6',
+            light: '#00B4D8',
+            lighter: '#90E0EF',
+            lightest: '#CAF0F8'
+        };
+
+        const chartColors = [brilliantBlues.main, brilliantBlues.light, brilliantBlues.dark, '#FF6B6B', '#FFD166', '#06D6A0', '#118AB2'];
+
+        const tooltipTitleCallback = function(tooltipItems) {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            } else {
+                return label;
+            }
+        };
+        
+        const defaultChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: brilliantBlues.dark,
+                        font: {
+                           size: 12
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            }
+        };
+
+        function wrapLabel(label, maxWidth = 16) {
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines.filter(line => line.length > 0);
+        }
+
+        const modelosData = {
+            labels: [
+                'Aceleración del Aprendizaje', 'Postprimaria', 'Telesecundaria', 
+                'Servicio de Educación Rural', 'Prog. Educ. Continuada CAFAM', 'Sistema de Aprendizaje Tutorial', 'Escuela Nueva'
+            ].map(label => wrapLabel(label)),
+            datasets: [
+                {
+                    label: 'Niños (7-12)',
+                    data: [1, 0, 0, 0, 0, 0, 1],
+                    backgroundColor: chartColors[0],
+                },
+                {
+                    label: 'Jóvenes (12-17)',
+                    data: [1, 1, 1, 1, 1, 1, 0],
+                    backgroundColor: chartColors[1],
+                },
+                {
+                    label: 'Adultos (15+)',
+                    data: [0, 0, 0, 1, 1, 1, 0],
+                    backgroundColor: chartColors[2],
+                }
+            ]
+        };
+
+        const poblacionChartCtx = document.getElementById('poblacionChart').getContext('2d');
+        new Chart(poblacionChartCtx, {
+            type: 'bar',
+            data: modelosData,
+            options: {
+                ...defaultChartOptions,
+                scales: {
+                    x: {
+                        stacked: true,
+                        ticks: { color: brilliantBlues.dark }
+                    },
+                    y: {
+                        stacked: true,
+                        ticks: { color: brilliantBlues.dark, stepSize: 1 }
+                    }
+                },
+                plugins: {
+                    ...defaultChartOptions.plugins,
+                    title: { display: false },
+                    tooltip: {
+                         callbacks: {
+                            title: function(tooltipItems) {
+                                let label = tooltipItems[0].chart.data.labels[tooltipItems[0].dataIndex];
+                                return Array.isArray(label) ? label.join(' ') : label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        const radarChartCtx = document.getElementById('radarChart').getContext('2d');
+        new Chart(radarChartCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Flexibilidad', 'Enfoque Rural', 'Tecnología', 'Comunidad', 'Autoaprendizaje'],
+                datasets: [
+                    { label: 'A.A.', data: [4, 2, 1, 3, 4], fill: true, backgroundColor: 'rgba(0, 119, 182, 0.2)', borderColor: 'rgba(0, 119, 182, 1)', pointBackgroundColor: 'rgba(0, 119, 182, 1)' },
+                    { label: 'Postprimaria', data: [4, 5, 2, 4, 4], fill: true, backgroundColor: 'rgba(255, 107, 107, 0.2)', borderColor: 'rgba(255, 107, 107, 1)', pointBackgroundColor: 'rgba(255, 107, 107, 1)'},
+                    { label: 'Telesecundaria', data: [3, 4, 5, 3, 3], fill: true, backgroundColor: 'rgba(6, 214, 160, 0.2)', borderColor: 'rgba(6, 214, 160, 1)', pointBackgroundColor: 'rgba(6, 214, 160, 1)'},
+                    { label: 'SAT', data: [5, 5, 2, 5, 5], fill: true, backgroundColor: 'rgba(255, 209, 102, 0.2)', borderColor: 'rgba(255, 209, 102, 1)', pointBackgroundColor: 'rgba(255, 209, 102, 1)'},
+                    { label: 'Escuela Nueva', data: [5, 5, 1, 5, 4], fill: true, backgroundColor: 'rgba(7, 59, 76, 0.2)', borderColor: 'rgba(7, 59, 76, 1)', pointBackgroundColor: 'rgba(7, 59, 76, 1)' }
+                ]
+            },
+            options: {
+                ...defaultChartOptions,
+                scales: {
+                    r: {
+                        angleLines: { color: brilliantBlues.lighter },
+                        grid: { color: brilliantBlues.lighter },
+                        pointLabels: { color: brilliantBlues.dark, font: { size: 10 } },
+                        ticks: {
+                            color: brilliantBlues.main,
+                            backdropColor: 'transparent',
+                            stepSize: 1
+                        }
+                    }
+                },
+                plugins: {
+                    ...defaultChartOptions.plugins,
+                    legend: {
+                        labels: { font: { size: 10 } }
+                    },
+                    tooltip: {
+                         callbacks: {
+                            title: (tooltipItems) => tooltipItems[0].dataset.label
+                        }
+                    }
+                }
+            }
+        });
+        
+        function createDonutChart(canvasId, labels, data) {
+            const ctx = document.getElementById(canvasId).getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Distribución de Recursos',
+                        data: data,
+                        backgroundColor: chartColors,
+                        borderColor: brilliantBlues.lightest,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                     ...defaultChartOptions,
+                     plugins: {
+                        ...defaultChartOptions.plugins,
+                        legend: { position: 'bottom', labels: { font: {size: 10}, boxWidth: 10 } }
+                    }
+                }
+            });
+        }
+
+        createDonutChart('recursosAA', ['Módulos', 'Guías Maestro', 'Biblioteca'], [60, 25, 15]);
+        createDonutChart('recursosPP', ['Módulos', 'Tecnología', 'Laboratorio', 'Insumos PPP'], [40, 20, 20, 20]);
+        createDonutChart('recursosTS', ['Módulos', 'TV/VHS', 'Laboratorio', 'Biblioteca'], [45, 25, 15, 15]);
+        createDonutChart('recursosSER', ['Módulos Contextualizados', 'Libro Paralelo', 'Tutoría'], [60, 20, 20]);
+        createDonutChart('recursosCAFAM', ['Módulos', 'Juegos', 'Talleres'], [70, 15, 15]);
+        createDonutChart('recursosSAT', ['Textos', 'Laboratorio Portátil', 'Biblioteca'], [60, 25, 15]);
+        createDonutChart('recursosEN', ['Módulos', 'CRA', 'Mini-Lab', 'Biblioteca'], [40, 25, 20, 15]);
+
+    </script>
+
+</body>
+</html>
